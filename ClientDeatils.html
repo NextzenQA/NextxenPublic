@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Client Details</title>
+  <style>
+    .required::after {
+      content: "*";
+      color: red;
+      margin-left: 5px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      padding: 5px;
+      margin-bottom: 10px;
+      width: 200px;
+    }
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    #response {
+      display: none;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Student Information Form</h1>
+  
+  <form>
+    <label for="firstName">First Name<span class="required"></span></label>
+    <input type="text" id="firstName" name="firstName" required>
+    
+    <label for="lastName">Last Name<span class="required"></span></label>
+    <input type="text" id="lastName" name="lastName" required>
+    
+    <label for="email">Email<span class="required"></span></label>
+    <input type="email" id="email" name="email" required>
+    
+    <label for="phone">Phone</label>
+    <input type="tel" id="phone" name="phone">
+    
+    <input type="submit" value="Submit">
+  </form>
+  
+  <div id="response">
+    <h2>Success!</h2>
+    <p>Thanks for your interest.</p>
+  </div>
+
+  <script>
+    const form = document.querySelector('form');
+    const responseDiv = document.getElementById('response');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      responseDiv.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
